@@ -1,8 +1,14 @@
 ---
 # tasks file for selinux
 
-- name: Install libselinux-python bindings
-  yum: name=libselinux-python state=present
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_distribution }}.yml"
+  tags: selinux
 
-- name: Set SELinux state to permissive
-  selinux: policy=targeted state=permissive
+- include: CentOS.yml
+  when: ansible_distribution == "CentOS"
+  tags: selinux
+
+- include: Ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: selinux

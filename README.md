@@ -11,17 +11,39 @@ This role requires Ansible 1.4 or higher.
 Role Variables
 --------------
 
+| Name           | Default    | Description                                       |
+|----------------|------------|---------------------------------------------------|
+| selinux_policy | targeted   | SELinux policy type (targeted or mls)             |
+| selinux_state  | permissive | SELinux state (permissive, enforcing or disabled) |
+
 Dependencies
 ------------
+
+None
 
 Example Playbook
 ----------------
 
-Configures SELinux in permissive mode.
+Configure SELinux in permissive mode.
+```
+- hosts: all
+  roles:
+    - { role: selinux }
+```
 
-    - hosts: all
-      roles:
-         - { role: selinux }
+Disable SELinux
+```
+- hosts: all
+  roles:
+    - { role: selinux, selinux_state: disabled }
+```
+
+Configure SELinux to use mls policy and enforcing mode
+```
+- hosts: all
+  roles:
+    - { role: selinux, selinux_policy: mls, selinux_state: enforcing}
+```
 
 License
 -------
