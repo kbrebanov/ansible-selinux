@@ -28,21 +28,21 @@ Configure SELinux in permissive mode.
 ```
 - hosts: all
   roles:
-    - { role: selinux }
+    - { role: kbrebanov.selinux }
 ```
 
 Disable SELinux
 ```
 - hosts: all
   roles:
-    - { role: selinux, selinux_state: disabled }
+    - { role: kbrebanov.selinux, selinux_state: disabled }
 ```
 
 Configure SELinux to use mls policy and enforcing mode
 ```
 - hosts: all
   roles:
-    - { role: selinux, selinux_policy: mls, selinux_state: enforcing}
+    - { role: kbrebanov.selinux, selinux_policy: mls, selinux_state: enforcing}
 ```
 
 License
