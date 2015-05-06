@@ -1,6 +1,8 @@
 selinux
 =======
 
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-kbrebanov.selinux-660198.svg)](https://galaxy.ansible.com/list#/roles/3289)
+
 Configures SELinux.
 
 Requirements
