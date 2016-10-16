@@ -1,8 +1,11 @@
 ---
 # tasks file for selinux (CentOS specific)
 
-- name: Install libselinux-python bindings
-  yum: name=libselinux-python state=present
+- name: Install selinux dependencies
+  yum: name={{ item }} state=present
+  with_items:
+    - libselinux-python
+    - selinux-policy
   tags: selinux
 
 - name: Set SELinux policy and state
