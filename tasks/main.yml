@@ -2,13 +2,13 @@
 # tasks file for selinux
 
 - name: Include distribution specific variables
-  include_vars: "{{ ansible_distribution }}.yml"
+  include_vars: "{{ ansible_os_family }}.yml"
   tags: selinux
 
-- include: CentOS.yml
-  when: ansible_distribution == "CentOS"
+- include: RedHat.yml
+  when: ansible_os_family == "RedHat"
   tags: selinux
 
-- include: Ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+- include: Debian.yml
+  when: ansible_os_family == "Debian"
   tags: selinux
